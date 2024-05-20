@@ -1,0 +1,118 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenneth's Epic Music Collection</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body id="body">
+<header>
+<h1>
+  Kenneth's Epic Music Collection
+</h1>
+</header>
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="delveIntoDepths.html">Delve Into Depths</a>
+  <a href="japaneseCovers.html">Japanese Covers</a>
+  <a href="localBands.html">Local Bands</a>
+</div>
+<div class="scrollbar">
+  <div id="header">
+      Delve into the Depths of Original Compositions
+  </div>
+  
+  <div class="body">
+    
+      <img src="images/Dark River.jpg" width="35%" alt="Juniper plays in Stockton"/>
+    <button id="myButton">Song Info</button>
+
+      <div id="myPopup" class="popup">
+          <div class="popup-content">
+              <h1 style="color: blue">
+                  Two songs that I have made. Dark River was made on FL Studio and Dozol is me on the guitar and a 
+stock beat from bandlab. 
+              </h1>
+              <p></p>
+              <button id="closePopup">
+                  Close
+              </button>
+          </div>
+      </div>
+      <br/>
+      <div>
+          <p>Witness the birth of musical genius!</p>
+      </div>
+      <h5>
+          <p>Dark River</p>
+          <audio controls id="song" src="music/Dark River.mp3"></audio>
+          <p>Dozol</p>
+          <audio controls id="song2" src="music/Dozol.m4a"></audio>
+      </h5>
+  </div>
+</div>
+<footer>Site created with love by Kenneth</footer>
+</body>
+<script>
+
+  audio = document.getElementById("song")
+  audio2 = document.getElementById("song2")
+
+  body = document.getElementById("body")
+
+  var tid = setInterval(mycode, 100);
+  function mycode() {
+    console.log("test")
+    if(!audio.paused || !audio2.paused){
+      body.style.backgroundImage = "url('test.gif')";
+      alert("")
+    }
+    else{
+      body.style.backgroundImage = "";
+    }
+  }
+  
+  myButton.addEventListener(
+      "click",
+      function () {
+          myPopup.classList.add("show");
+      }
+  );
+  closePopup.addEventListener(
+      "click",
+      function () {
+          myPopup.classList.remove(
+              "show"
+          );
+      }
+  );
+  window.addEventListener(
+      "click",
+      function (event) {
+          if (event.target == myPopup) {
+              myPopup.classList.remove(
+                  "show"
+              );
+          }
+      }
+  );
+
+audio = document.getElementById("song")
+audio2 = document.getElementById("song2")
+
+body = document.getElementById("body")
+
+audio.onplay = function() {
+    alert("The video has started to play");
+};
+var tid = setInterval(mycode, 100);
+function mycode() {
+  if(!audio.paused || !audio2.paused){
+    body.style.backgroundImage = "url('test.gif')";
+  }
+  else{
+    body.style.backgroundImage = "";
+  }
+}
+</script>
+</html>

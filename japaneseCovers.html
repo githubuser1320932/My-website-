@@ -1,0 +1,102 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenneth's Epic Music Collection</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body id="body">
+<header>
+<h1>
+  Kenneth's Epic Music Collection
+</h1>
+</header>
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="delveIntoDepths.html">Delve Into Depths</a>
+  <a class="active" href="japaneseCovers.html">Japanese Covers</a>
+  <a href="localBands.html">Local Bands</a>
+</div>
+<div id="header">
+  Behold the Majesty of Japanese Covers
+</div>
+<div class="body">
+  <img src="images/Japanese Music.jpg" width="35%" alt="Illustration of a Japanese Winter" />
+  <button id="myButton">Song Info</button>
+
+  <div id="myPopup" class="popup">
+      <div class="popup-content">
+          <h1 style="color: blue">
+                  1. Kyu Kurarin by Iyowa
+		  2. Egorock by Surii
+          </h1>
+          <p>Song 1 is based off the story of Sayori from the video game 
+Doki Doki Literature Club. It talks about deep topics such as depression and
+unrequited love with the last line "watashi chuuburarin" meaning my heart hangs 
+in the air or perhaps a euphamism for hanging.</p>
+<p>
+Song 2 is very much like Surii's other songs in theme. The
+theme being not being able to fit in. A misfit who refuses to conform and
+has a hard time expressing himself in a harsh world that banishes those that 
+are different.  
+</p> 
+          <button id="closePopup">
+              Close
+          </button>
+      </div>
+  </div>
+    <p>Prepare your soul for the enchanting melodies of the Far East.</p>
+    <h5>
+        <p>iyowa - kyu kurarin (Cover)</p>
+        <audio id="song" controls src="music/kyu final.mp3"></audio>
+        <p>surii - egorock (Cover)</p>
+        <audio id="song2" controls src="music/egorock.wav"></audio>
+    </h5>
+
+<footer>Site created with love by Kenneth</footer>
+</body>
+<script>
+
+  audio = document.getElementById("song")
+  audio2 = document.getElementById("song2")
+
+  body = document.getElementById("body")
+
+
+  var tid = setInterval(mycode, 100);
+  function mycode() {
+    if(!audio.paused || !audio2.paused){
+      body.style.backgroundImage = "url('test.gif')";
+    }
+    else{
+      body.style.backgroundImage = "";
+    }
+  }
+  
+  myButton = document.getElementById("myButton")
+    myButton.addEventListener(
+        "click",
+        function () {
+            myPopup.classList.add("show");
+        }
+    );
+    closePopup.addEventListener(
+        "click",
+        function () {
+            myPopup.classList.remove(
+                "show"
+            );
+        }
+    );
+    window.addEventListener(
+        "click",
+        function (event) {
+            if (event.target == myPopup) {
+                myPopup.classList.remove(
+                    "show"
+                );
+            }
+        }
+    );
+</script>
+</html>
